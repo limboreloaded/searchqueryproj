@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Search Engine</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="logo">VoiceSearch</h1>
+            <p class="tagline">Ask anything, get answers</p>
+        </header>
+
+        <!-- Main Search Interface -->
+        <main class="main-content">
+            <!-- Voice Input Section -->
+            <section class="voice-input-section">
+                <div class="search-container">
+                    <div class="voice-button-container">
+                        <button id="voiceButton" class="voice-button" aria-label="Start voice search">
+                            <svg class="mic-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 1C10.34 1 9 2.34 9 4V12C9 13.66 10.34 15 12 15C13.66 15 15 13.66 15 12V4C15 2.34 13.66 1 12 1Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M19 10V12C19 16.42 15.42 20 11 20H13C17.42 20 21 16.42 21 12V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 19V23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 23H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <p class="voice-instruction" id="voiceInstruction">Click to start voice search</p>
+                    </div>
+                    
+                    <!-- Text Input Fallback -->
+                    <div class="text-input-container">
+                        <input type="text" id="textInput" class="text-input" placeholder="Or type your question here..." />
+                        <button id="searchButton" class="search-button" aria-label="Search">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                                <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Audio Visualization Canvas (Stage 2: Canvas API) -->
+                <div class="canvas-container">
+                    <canvas id="audioVisualization" class="audio-canvas"></canvas>
+                </div>
+
+                <!-- Audio Recording Status -->
+                <div class="recording-status" id="recordingStatus" style="display: none;">
+                    <div class="pulse-animation"></div>
+                    <span>Listening...</span>
+                </div>
+            </section>
+
+            <!-- Search Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <h2 class="results-title">Search Results</h2>
+                
+                <!-- Text Query Display -->
+                <div class="query-display">
+                    <p class="query-label">You asked:</p>
+                    <p class="query-text" id="queryText"></p>
+                </div>
+
+                <!-- Results Container -->
+                <div class="results-container" id="resultsContainer">
+                    <!-- Results will be dynamically inserted here -->
+                </div>
+            </section>
+
+            <!-- Video Results Section (Video API - Stage 4) -->
+            <section class="video-results-section" id="videoResultsSection" style="display: none;">
+                <h2 class="video-results-title">Video Results</h2>
+                <div class="video-container" id="videoContainer">
+                    <p class="video-placeholder">Video results will appear here (Video API - Stage 4)</p>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+    <!-- Audio Element (Stage 3: Audio API) -->
+    <audio id="audioPlayer" controls style="display: none;"></audio>
+    
+    <!-- Scripts will be added in later stages -->
+    <script src="script.js"></script>
+</body>
+</html>
+
